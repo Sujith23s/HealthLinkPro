@@ -22,8 +22,7 @@ function DoctorLogin(){
                 console.log(result.data); 
                 if (result.data.message === "Login Successfull") {
                     localStorage.setItem("userId", result.data.userId);  
-                    console.log("Navigating to dashboard");
-                    navigate("/");  
+                    navigate("/DoctorDash");  
                 } else {
                     alert(result.data); 
                 }
@@ -37,13 +36,14 @@ function DoctorLogin(){
     return (
         <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-200 to-blue-400 ">
         <div className="bg-white p-6 rounded w-1/4">
-            <h2 className="text-2xl font-semibold text-center mb-4">DoctorLogin</h2>
+            <h2 className="text-2xl font-semibold text-center mb-4">Doctor Login</h2>
             <form onSubmit={handleSubmit} >
                 <div className="mb-4">
                     <label htmlFor="email" className="block mb-2">
                         <strong>Email</strong>
                     </label>
-                    <input 
+                    <input
+                        id="email" 
                         type="email" 
                         placeholder="Enter Email"
                         autoComplete="off"
@@ -57,6 +57,7 @@ function DoctorLogin(){
                         <strong>Password</strong>
                     </label>
                     <input 
+                        id="password"
                         type="password"
                         placeholder="Enter Password"
                         name="password"
@@ -69,7 +70,7 @@ function DoctorLogin(){
                 </button>
             </form>
             <p className="mt-4 ml-3 font-semibold text-gray-600 mb-4">Does not have an account? <Link to="/DoctorRegister" className="ml-3 font-semibold  text-blue-800">Sign Up</Link></p>
-            <Link to='/'><p className="text-center font-semibold text-gray-600">Back to Home</p></Link>
+            <Link to='/DoctorLogin'><p className="text-center font-semibold text-gray-600">Back to Home</p></Link>
         </div>
     </div>
     

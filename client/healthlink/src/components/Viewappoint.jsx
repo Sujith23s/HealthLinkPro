@@ -10,6 +10,7 @@ function Booking() {
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
+    console.log(userId)
     if (!userId) {
       navigate("/dash");
       return;

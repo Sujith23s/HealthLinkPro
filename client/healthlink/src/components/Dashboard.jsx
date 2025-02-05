@@ -83,9 +83,11 @@ function Dashboard() {
               View Appointments
             </button>
           </Link>
+          <Link to="/ViewPrescriptions">
           <button className="bg-purple-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-purple-600 transition">
             View Prescriptions
           </button>
+          </Link>
           <button
             className="bg-red-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-red-600 transition"
             onClick={handleLogout}

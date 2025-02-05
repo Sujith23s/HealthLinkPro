@@ -6,7 +6,7 @@ function Booking() {
   const [details, setDetails] = useState({
     Slot: "",
     doctor: "",
-    PhoneNumber:""
+    PhoneNumber: "",
   });
   //console.log(details)
 
@@ -21,22 +21,22 @@ function Booking() {
 
   const navigate = useNavigate();
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-    .post("http://localhost:5001/booking", details)
-    .then((result) => {
-      console.log(result.data.message)
-      if(result.data.message === "Booking processed successfully!") {
-        navigate("/dash ")
-      }else{
-        alert(result.data.message || "Please enter registered phone number")
-      }
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-  }
+      .post("http://localhost:5001/booking", details)
+      .then((result) => {
+        console.log(result.data.message);
+        if (result.data.message === "Booking processed successfully!") {
+          navigate("/dash ");
+        } else {
+          alert(result.data.message || "Please enter registered phone number");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-200 to-blue-400 flex items-center justify-center p-4">
@@ -53,14 +53,14 @@ function Booking() {
           </h2>
 
           <div className="mb-4">
-            <label htmlFor="Slot1" className="block text-gray-700">Select Slot</label>
+            <label htmlFor="Slot1" className="block text-gray-700">
+              Select Slot
+            </label>
             <select
               name="Slot" // Add the name attribute
               id="Slot1"
               className="w-full p-2 mt-2 border border-gray-300 rounded-lg"
-              value={details.Slot}
-              onChange={handleDetails}
-              required
+               
             >
               <option value="">Select a Slot</option>
               <option value="9 AM to 12 PM">9 AM to 12 PM</option>
@@ -70,7 +70,9 @@ function Booking() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="Slot2" className="block text-gray-700">Select Doctor</label>
+            <label htmlFor="Slot2" className="block text-gray-700">
+              Select Doctor
+            </label>
             <select
               name="doctor" // Add the name attribute
               id="Slot2"
@@ -84,16 +86,18 @@ function Booking() {
               <option value="ortho">Ortho</option>
               <option value="neurology">Neurology</option>
             </select>
-            <label htmlFor="PhoneNumber" className="block text-gray-700 mt-3">Enter Phone Number</label>
-            <input 
-            type="text" 
-            name="PhoneNumber" 
-            value={details.PhoneNumber} 
-            onChange={handleDetails} 
-            id="PhoneNumber" 
-            placeholder="Registerd phone number" 
-            className="w-full p-2 mt-1 border-black-300 rounded-lg"
-            required
+            <label htmlFor="PhoneNumber" className="block text-gray-700 mt-3">
+              Enter Phone Number
+            </label>
+            <input
+              type="text"
+              name="PhoneNumber"
+              value={details.PhoneNumber}
+              onChange={handleDetails}
+              id="PhoneNumber"
+              placeholder="Registerd phone number"
+              className="w-full p-2 mt-1 border-black-300 rounded-lg"
+              required
             />
           </div>
 
